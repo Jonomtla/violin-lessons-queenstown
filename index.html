@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Violin Lessons for Little Musicians | Queenstown</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --warm-cream: #FDF8F3;
+            --rich-burgundy: #722F37;
+            --deep-mahogany: #4A1C20;
+            --golden-wood: #C4956A;
+            --soft-rose: #E8D5D5;
+            --charcoal: #2D2D2D;
+            --light-wood: #DEC5A8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--warm-cream);
+            color: var(--charcoal);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+
+        /* Decorative violin f-hole SVG pattern */
+        .f-hole-decoration {
+            position: absolute;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--deep-mahogany) 0%, var(--rich-burgundy) 50%, #8B3A42 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 80%, rgba(196, 149, 106, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(196, 149, 106, 0.1) 0%, transparent 50%);
+        }
+
+        /* Animated musical notes */
+        .floating-notes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .note {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.1);
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .note:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .note:nth-child(2) { left: 20%; animation-delay: 2s; }
+        .note:nth-child(3) { left: 35%; animation-delay: 4s; }
+        .note:nth-child(4) { left: 50%; animation-delay: 1s; }
+        .note:nth-child(5) { left: 65%; animation-delay: 3s; }
+        .note:nth-child(6) { left: 80%; animation-delay: 5s; }
+        .note:nth-child(7) { left: 90%; animation-delay: 2.5s; }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.15;
+            }
+            90% {
+                opacity: 0.15;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            color: var(--light-wood);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero h1 span {
+            color: var(--golden-wood);
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--golden-wood), #D4A574);
+            color: var(--deep-mahogany);
+            box-shadow: 0 4px 20px rgba(196, 149, 106, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(196, 149, 106, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.5);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: var(--warm-cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--deep-mahogany);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--rich-burgundy), var(--golden-wood));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--soft-rose), var(--warm-cream));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            color: var(--deep-mahogany);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--soft-rose) 0%, var(--warm-cream) 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image-frame {
+            background: linear-gradient(135deg, var(--rich-burgundy), var(--deep-mahogany));
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .about-image-inner {
+            background: var(--light-wood);
+            border-radius: 15px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .violin-illustration {
+            font-size: 8rem;
+            opacity: 0.3;
+        }
+
+        .about-text h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--deep-mahogany);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .suzuki-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-top: 1rem;
+        }
+
+        .suzuki-badge-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--rich-burgundy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .suzuki-badge-text {
+            text-align: left;
+        }
+
+        .suzuki-badge-text strong {
+            display: block;
+            color: var(--deep-mahogany);
+        }
+
+        .suzuki-badge-text span {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 6rem 2rem;
+            background: var(--warm-cream);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
+        }
+
+        .program-card.featured {
+            border: 3px solid var(--golden-wood);
+        }
+
+        .program-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--golden-wood);
+            color: var(--deep-mahogany);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .program-header {
+            background: linear-gradient(135deg, var(--rich-burgundy), var(--deep-mahogany));
+            padding: 2.5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-header::after {
+            content: '🎻';
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            font-size: 8rem;
+            opacity: 0.1;
+        }
+
+        .program-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .program-header p {
+            opacity: 0.85;
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .program-body {
+            padding: 2.5rem;
+        }
+
+        .program-details {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .program-details li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .program-details li:last-child {
+            border-bottom: none;
+        }
+
+        .program-details .icon {
+            width: 24px;
+            height: 24px;
+            background: var(--soft-rose);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.75rem;
+        }
+
+        .program-details .text {
+            flex: 1;
+        }
+
+        .program-details .text strong {
+            display: block;
+            color: var(--deep-mahogany);
+            margin-bottom: 0.2rem;
+        }
+
+        .program-details .text span {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .program-price {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--warm-cream);
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+        }
+
+        .program-price .amount {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--deep-mahogany);
+        }
+
+        .program-price .period {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .program-card .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Location Section */
+        .location {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--deep-mahogany) 0%, var(--rich-burgundy) 100%);
+            color: white;
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .location-text h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .location-text p {
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .location-details {
+            list-style: none;
+        }
+
+        .location-details li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .location-details li:last-child {
+            border-bottom: none;
+        }
+
+        .location-details .icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .location-map {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .map-placeholder {
+            text-align: center;
+            opacity: 0.7;
+        }
+
+        .map-placeholder span {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Form Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: var(--warm-cream);
+        }
+
+        .contact-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--deep-mahogany);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid #e8e8e8;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--rich-burgundy);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(114, 47, 55, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-submit {
+            margin-top: 2rem;
+        }
+
+        .form-submit .btn {
+            width: 100%;
+            padding: 1.25rem;
+            font-size: 1.1rem;
+        }
+
+        .form-note {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .success-message h3 {
+            font-size: 1.8rem;
+            color: var(--deep-mahogany);
+            margin-bottom: 1rem;
+        }
+
+        .success-message p {
+            color: #666;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer a {
+            color: var(--golden-wood);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="floating-notes">
+            <span class="note">♪</span>
+            <span class="note">♫</span>
+            <span class="note">♩</span>
+            <span class="note">♬</span>
+            <span class="note">♪</span>
+            <span class="note">♫</span>
+            <span class="note">♩</span>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">Queenstown • Te Atamira</div>
+            <h1>Where <span>Little Hands</span><br>Meet Beautiful Music</h1>
+            <p class="hero-subtitle">Suzuki violin lessons for 3 & 4 year olds and their parents. Learn together, grow together, make music together.</p>
+            <div class="hero-cta">
+                <a href="#programs" class="btn btn-primary">View Programs</a>
+                <a href="#signup" class="btn btn-secondary">Enquire Now</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Why Start Young?</h2>
+                <p>The early years are magical for musical development. Here's what makes our approach special.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">👨‍👩‍👧</div>
+                    <h3>Learn Together</h3>
+                    <p>Parents participate alongside their children, creating a beautiful bonding experience and supporting practice at home.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🎵</div>
+                    <h3>Suzuki Method</h3>
+                    <p>A nurturing, ear-first approach where children learn music the same way they learn language—through listening and immersion.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">👶</div>
+                    <h3>Age-Appropriate</h3>
+                    <p>Designed specifically for 3 and 4 year olds with short, engaging lessons that match their attention span and motor development.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🏔️</div>
+                    <h3>Local & Convenient</h3>
+                    <p>Held at the beautiful Te Atamira in Queenstown—a welcoming space perfect for young musicians and their families.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Teacher Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image fade-in">
+                    <div class="about-image-frame">
+                        <div class="about-image-inner">
+                            <span class="violin-illustration">🎻</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text fade-in">
+                    <h2>Meet Your Teacher</h2>
+                    <h3 style="color: var(--rich-burgundy); font-size: 1.5rem; margin-bottom: 1rem;">Natasha Matla</h3>
+                    <p>Natasha brings warmth, patience, and expertise to every lesson. With a passion for early childhood music education and the Suzuki philosophy, she creates a joyful environment where young children and their parents discover the magic of the violin together.</p>
+                    <p>Her group lessons are designed to be fun, engaging, and developmentally appropriate—nurturing a love of music that lasts a lifetime.</p>
+                    <div class="suzuki-badge">
+                        <div class="suzuki-badge-icon">♪</div>
+                        <div class="suzuki-badge-text">
+                            <strong>Suzuki Method</strong>
+                            <span>Every child can learn</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Choose Your Path</h2>
+                <p>Whether you're ready to commit or want to try first, we have the perfect option for you.</p>
+            </div>
+            <div class="programs-grid">
+                <!-- Try the Violin -->
+                <div class="program-card fade-in">
+                    <div class="program-header">
+                        <h3>Try the Violin</h3>
+                        <p>A 4-week introduction for curious families</p>
+                    </div>
+                    <div class="program-body">
+                        <ul class="program-details">
+                            <li>
+                                <span class="icon">📅</span>
+                                <div class="text">
+                                    <strong>Duration</strong>
+                                    <span>4 weekly sessions</span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="icon">⏱️</span>
+                                <div class="text">
+                                    <strong>Lesson Length</strong>
+                                    <span>15 minutes per session</span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="icon">👥</span>
+                                <div class="text">
+                                    <strong>Format</strong>
+                                    <span>Small group with parent participation</span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="icon">🎻</span>
+                                <div class="text">
+                                    <strong>Instruments</strong>
+                                    <span>Violins provided for class</span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="icon">📍</span>
+                                <div class="text">
+                                    <strong>Location</strong>
+                                    <span>Te Atamira, Queenstown</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="#signup" class="btn btn-primary" data-program="try">Enquire About Trial</a>
+                    </div>
+                </div>
+
+                <!-- Term Lessons -->
+                <div class="program-card featured fade-in">
+                    <div class="program-badge">Most Popular</div>
+                    <div class="program-header">
+                        <h3>Term Lessons</h3>
+                        <p>Full term commitment for serious beginners</p>
+                    </div>
+                    <div class="program-body">
+                        <ul class="program-details">
+                            <li>
+                                <span class="icon">📅</span>
+                                <div class="text">
+                                    <strong>Duration</strong>
+                                    <span>Full school term</span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="icon">⏱️</span>
+                                <div class="text">
+                                    <strong>Lesson Length</strong>
+                                    <span>15 minutes weekly</span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="icon">👥</span>
+                                <div class="text">
+                                    <strong>Format</strong>
+                                    <span>Small group with parent participation</span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="icon">🎻</span>
+                                <div class="text">
+                                    <strong>Progression</strong>
+                                    <span>Structured Suzuki curriculum</span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="icon">📍</span>
+                                <div class="text">
+                                    <strong>Location</strong>
+                                    <span>Te Atamira, Queenstown</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="#signup" class="btn btn-primary" data-program="term">Enquire About Term</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location">
+        <div class="container">
+            <div class="location-content">
+                <div class="location-text fade-in">
+                    <h2>Find Us at Te Atamira</h2>
+                    <p>Our lessons are held in the heart of Queenstown at the beautiful Te Atamira community space—a welcoming venue perfect for little musicians and their families.</p>
+                    <ul class="location-details">
+                        <li>
+                            <span class="icon">📍</span>
+                            <div>
+                                <strong>Te Atamira</strong><br>
+                                Queenstown, New Zealand
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon">🚗</span>
+                            <div>
+                                <strong>Parking Available</strong><br>
+                                Easy access for families
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon">♿</span>
+                            <div>
+                                <strong>Accessible Venue</strong><br>
+                                Wheelchair & pram friendly
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="location-map fade-in">
+                    <div class="map-placeholder">
+                        <span>🏔️</span>
+                        <p>Te Atamira, Queenstown</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact" id="signup">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Start Your Musical Journey</h2>
+                <p>Fill out the form below and Natasha will be in touch to discuss the perfect program for your family.</p>
+            </div>
+            <div class="contact-wrapper fade-in">
+                <form class="contact-form" id="enquiry-form" action="https://formsubmit.co/nataskumar@gmail.com" method="POST">
+                    <!-- FormSubmit configuration -->
+                    <input type="hidden" name="_subject" value="New Violin Lesson Enquiry - Queenstown">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" id="success-redirect">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="parent-name">Parent/Guardian Name *</label>
+                            <input type="text" id="parent-name" name="Parent Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="child-name">Child's Name *</label>
+                            <input type="text" id="child-name" name="Child Name" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="child-age">Child's Age *</label>
+                            <select id="child-age" name="Child Age" required>
+                                <option value="">Select age</option>
+                                <option value="3 years old">3 years old</option>
+                                <option value="4 years old">4 years old</option>
+                                <option value="Other">Other (please specify in message)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="program">Interested In *</label>
+                            <select id="program" name="Program Interest" required>
+                                <option value="">Select program</option>
+                                <option value="4-Week Try the Violin">4-Week Try the Violin</option>
+                                <option value="Term Lessons">Term Lessons (15 min weekly)</option>
+                                <option value="Not sure yet">Not sure yet—tell me more!</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="Phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Anything else you'd like us to know?</label>
+                        <textarea id="message" name="Message" placeholder="Tell us about your child, any previous music experience, preferred days/times, or any questions you have..."></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary">Send Enquiry</button>
+                    </div>
+                    <p class="form-note">We'll respond within 24-48 hours. We can't wait to meet you!</p>
+                </form>
+
+                <div class="success-message" id="success-message">
+                    <div class="success-icon">✓</div>
+                    <h3>Thank You!</h3>
+                    <p>Your enquiry has been sent successfully. Natasha will be in touch soon to discuss violin lessons for your family.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">🎻 Violin Lessons with Natasha</div>
+            <p>Suzuki violin for little musicians in Queenstown</p>
+            <p>Questions? Email <a href="mailto:nataskumar@gmail.com">nataskumar@gmail.com</a></p>
+            <p style="margin-top: 1.5rem; opacity: 0.5; font-size: 0.8rem;">© 2025 Natasha Matla. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set the success redirect URL
+        document.getElementById('success-redirect').value = window.location.href + '?success=true';
+
+        // Check for success parameter and show success message
+        if (window.location.search.includes('success=true')) {
+            document.getElementById('enquiry-form').style.display = 'none';
+            document.getElementById('success-message').classList.add('show');
+            // Scroll to form section
+            document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
+            // Clean up URL
+            history.replaceState({}, document.title, window.location.pathname);
+        }
+
+        // Pre-select program based on button clicked
+        document.querySelectorAll('[data-program]').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const program = e.target.dataset.program;
+                setTimeout(() => {
+                    const select = document.getElementById('program');
+                    if (program === 'try') {
+                        select.value = '4-Week Try the Violin';
+                    } else if (program === 'term') {
+                        select.value = 'Term Lessons';
+                    }
+                }, 500);
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
