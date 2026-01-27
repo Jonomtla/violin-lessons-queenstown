@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Codes - Violin Lessons Queenstown</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4A1C20;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .qr-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .qr-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 320px;
+        }
+
+        .qr-card h2 {
+            color: #4A1C20;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .qr-card p {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .qr-wrapper {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .qr-wrapper canvas {
+            display: block;
+        }
+
+        .url-display {
+            background: #f8f8f8;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: #666;
+            word-break: break-all;
+            margin-bottom: 1rem;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #722F37, #4A1C20);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0.25rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(114, 47, 55, 0.3);
+        }
+
+        .print-section {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .print-section h2 {
+            color: #4A1C20;
+            margin-bottom: 1rem;
+        }
+
+        .print-layout {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            padding: 2rem;
+            border: 2px dashed #ddd;
+            border-radius: 12px;
+        }
+
+        .print-item {
+            text-align: center;
+            padding: 1rem;
+            border: 1px solid #eee;
+            border-radius: 12px;
+        }
+
+        .print-item h3 {
+            color: #4A1C20;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .print-item p {
+            color: #888;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .print-btn {
+            background: #4A1C20;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1.5rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .qr-container, h1, .subtitle, .download-btn, .print-btn {
+                display: none !important;
+            }
+
+            .print-section {
+                box-shadow: none;
+                margin: 0;
+                padding: 1rem;
+            }
+
+            .print-layout {
+                border: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .print-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🎻 QR Codes for Violin Lessons</h1>
+    <p class="subtitle">Scan to visit the landing page or download for print materials</p>
+
+    <div class="qr-container">
+        <div class="qr-card">
+            <h2>Standard QR Code</h2>
+            <p>Perfect for flyers, posters, and print materials</p>
+            <div class="qr-wrapper">
+                <canvas id="qr-standard"></canvas>
+            </div>
+            <div class="url-display">jonomtla.github.io/violin-lessons-queenstown</div>
+            <button class="download-btn" onclick="downloadQR('qr-standard', 'violin-lessons-qr.png')">Download PNG</button>
+            <button class="download-btn" onclick="downloadSVG()">Download SVG</button>
+        </div>
+
+        <div class="qr-card">
+            <h2>Large QR Code</h2>
+            <p>High resolution for large format printing</p>
+            <div class="qr-wrapper">
+                <canvas id="qr-large"></canvas>
+            </div>
+            <div class="url-display">jonomtla.github.io/violin-lessons-queenstown</div>
+            <button class="download-btn" onclick="downloadQR('qr-large', 'violin-lessons-qr-large.png')">Download PNG (Large)</button>
+        </div>
+    </div>
+
+    <div class="print-section">
+        <h2>Print-Ready Layout</h2>
+        <p style="color: #666; margin-bottom: 1rem;">These QR codes are sized for common print uses. Click "Print This Page" to print them directly.</p>
+
+        <div class="print-layout">
+            <div class="print-item">
+                <h3>Violin Lessons Queenstown</h3>
+                <p>Suzuki lessons for 3 & 4 year olds</p>
+                <canvas id="qr-print-1"></canvas>
+                <p style="margin-top: 0.5rem;">Scan to learn more & enquire</p>
+            </div>
+            <div class="print-item">
+                <h3>Violin Lessons Queenstown</h3>
+                <p>Suzuki lessons for 3 & 4 year olds</p>
+                <canvas id="qr-print-2"></canvas>
+                <p style="margin-top: 0.5rem;">Scan to learn more & enquire</p>
+            </div>
+            <div class="print-item">
+                <h3>Violin Lessons Queenstown</h3>
+                <p>Suzuki lessons for 3 & 4 year olds</p>
+                <canvas id="qr-print-3"></canvas>
+                <p style="margin-top: 0.5rem;">Scan to learn more & enquire</p>
+            </div>
+            <div class="print-item">
+                <h3>Violin Lessons Queenstown</h3>
+                <p>Suzuki lessons for 3 & 4 year olds</p>
+                <canvas id="qr-print-4"></canvas>
+                <p style="margin-top: 0.5rem;">Scan to learn more & enquire</p>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <button class="print-btn" onclick="window.print()">🖨️ Print This Page</button>
+        </div>
+    </div>
+
+    <script>
+        const url = 'https://jonomtla.github.io/violin-lessons-queenstown/';
+
+        // Generate standard QR code
+        QRCode.toCanvas(document.getElementById('qr-standard'), url, {
+            width: 200,
+            margin: 2,
+            color: {
+                dark: '#4A1C20',
+                light: '#FFFFFF'
+            }
+        });
+
+        // Generate large QR code
+        QRCode.toCanvas(document.getElementById('qr-large'), url, {
+            width: 250,
+            margin: 2,
+            color: {
+                dark: '#4A1C20',
+                light: '#FFFFFF'
+            }
+        });
+
+        // Generate print QR codes
+        ['qr-print-1', 'qr-print-2', 'qr-print-3', 'qr-print-4'].forEach(id => {
+            QRCode.toCanvas(document.getElementById(id), url, {
+                width: 150,
+                margin: 1,
+                color: {
+                    dark: '#000000',
+                    light: '#FFFFFF'
+                }
+            });
+        });
+
+        // Download QR code as PNG
+        function downloadQR(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        // Download as SVG
+        function downloadSVG() {
+            QRCode.toString(url, {
+                type: 'svg',
+                width: 300,
+                margin: 2,
+                color: {
+                    dark: '#4A1C20',
+                    light: '#FFFFFF'
+                }
+            }, function(err, svgString) {
+                if (err) throw err;
+                const blob = new Blob([svgString], { type: 'image/svg+xml' });
+                const link = document.createElement('a');
+                link.download = 'violin-lessons-qr.svg';
+                link.href = URL.createObjectURL(blob);
+                link.click();
+            });
+        }
+    </script>
+</body>
+</html>
